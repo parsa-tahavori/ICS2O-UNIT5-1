@@ -1,19 +1,19 @@
-// Copyright (c) 2020 Mr. Coxall All rights reserved
+// Copyright (c) 2022 Parsa Tahavori All rights reserved
 //
-// Created by: Mr. Coxall
-// Created on: Sep 2020
+// Created by: Parsa Tahavori
+// Created on: Nov 2022
 // This file contains the JS functions for index.html
-
-"use strict"
 
 /**
  * Check servie worker.
  */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-PWA-Test/sw.js", {
-    scope: "/ICS2O-PWA-Test/",
+  navigator.serviceWorker.register("/ICS20-Unit-5-01-JS/sw.js", {
+    scope: "/ICS20-Unit-5-01-JS/",
   })
 }
+
+const randomNumber = Math.floor(Math.random() * 6) + 1
 
 /**
  * This function updates the slider value.
@@ -23,9 +23,21 @@ function updateSliderValue(valueFromSlider) {
 }
 
 /**
- * This function displays the slider value.
+ * This function compares slider with random number.
  */
 function myButtonClicked() {
-  document.getElementById("hello-world").innerHTML =
-    "<p>Value is: " + slider.value + "</p>"
+  const sliderValue = slider.value
+
+  // process
+  if (sliderValue == randomNumber) {
+    document.getElementById("answer").innerHTML =
+      "Answer is " + randomNumber + "!" + " YAAY"
+    // console.log("Congratulations!")
+  }
+  //  block of code to be executed if condition1 is true
+  if (sliderValue != randomNumber) {
+    document.getElementById("answer").innerHTML =
+      "Answer is " + randomNumber + "!" + " Opps"
+    // console.log("Try again!")
+  }
 }
